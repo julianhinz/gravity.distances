@@ -1,0 +1,17 @@
+Package: gravity.distances
+Type: Package
+Title: Gravity-consistent distances between geographic entities
+Version: 0.1.0
+Author: Julian Hinz
+Maintainer: Julian Hinz <mail@julianhinz.com>
+Description: This package provides distances between geographic entities — like countries,
+  states or provinces — that are consistent with the gravity equation in international economics.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.0
+Imports:
+  data.table,
+  countrycode,
+  feather,
+  stringr
