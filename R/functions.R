@@ -24,7 +24,7 @@ get_distance = function (origin, destination, year = 2012, theta = -1,
 
   # perform sanity checks
   if (sum(!year %in% c(1992:2012)) > 0) print("Warning: Currently distances are only available for years between 1992 and 2012")
-  if (sum(theta < -1 | theta > 1) > 0)  print("Warning: Currently distances are only available for thetas between -1 and 1")
+  if (is.null(data) & sum(theta < -1 | theta > 1) > 0)  print("Warning: Distances in this dataset are only available for thetas in (-1, 0, 1). You may want to use another distances dataset.")
 
   # set request
   request = data.table(id = 1:length(origin),
