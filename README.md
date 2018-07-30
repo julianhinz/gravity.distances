@@ -21,7 +21,7 @@ To get the distance between two countries, simply set the `origin` and `destinat
 library(gravity.distances)
 
 get_distance("DEU", "CAN")
-[1] 6519.294
+# [1] 6519.294
 ```
 
 
@@ -33,7 +33,7 @@ Specifying an `origin`, `destination` and `year` delivers the harmonic mean dist
 library(ggplot2)
 
 dist <- data.frame(origin = "DEU", destination = "CAN", year = c(1992:2012))
-dist$distance = get_distance(origin = dist$origin,
+dist$distance <- get_distance(origin = dist$origin,
                              destination = dist$destination,
                              year = dist$year)
 
@@ -50,7 +50,7 @@ Specifying the `theta`s for a given year shows the effect of &theta; on the aggr
 
 ```R
 dist <- data.frame(origin = "CAN", destination = "CAN", theta = c(-20:10)/10)
-dist$distance = get_distance(origin = dist$origin,
+dist$distance <- get_distance(origin = dist$origin,
                              destination = dist$destination,
                              theta = dist$theta,
                              data = "distances_from_countries_to_countries")
@@ -63,7 +63,7 @@ The `data` argument can be used to use different distance datasets.
 
 ```R
 dist <- expand.grid(origin = "BC", destination = c("BC", "AB", "SK", "MB"), theta = c(-20:10)/10)
-dist$distance = get_distance(origin = dist$origin,
+dist$distance <- get_distance(origin = dist$origin,
                              destination = dist$destination,
                              theta = dist$theta,
                              data = "distances_from_canada_provinces_to_canada_provinces",
