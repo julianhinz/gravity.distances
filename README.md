@@ -5,7 +5,7 @@ The R package `gravity.distances` provides *aggregate* distances between geograp
 ## Installation
 
 Install from Github via the [devtools](https://devtools.r-lib.org) package:
-```
+```R
 devtools::install_github("julianhinz/gravity.distances")
 ```
 
@@ -13,12 +13,23 @@ devtools::install_github("julianhinz/gravity.distances")
 
 The `get_distance` function provides distances between two geographic entities for a given point in time for a given value &theta;. The &theta; is a parameter in the aggregation of the mean that yields the harmonic mean for &theta; = -1, the geometric mean for &theta; = 0 and the arithmetic mean for &theta; = 1. In almost all cases in which a general gravity relationship is assumed to hold, i.e. when the underlying data generating process posits a negative relationship of the variable of interest with distance, the harmonic mean should be used.
 
+### Distance between two geographic entities
+
+To get the distance between two countries, simply set the `origin` and `destination` argument to the [ISO 3166-1 alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) country codes of the two countries. The `year` argument defaults to 2012, the `theta` argument defaults to -1, i.e. the harmonic mean.
+
+```R
+library(gravity.distances)
+
+get_distance("DEU", "CAN")
+[1] 6519.294
+```
+
+
 ### Distance over time
 
-Specifying an `origin`, `destination` and `year`s delivers the harmonic mean distance (&theta; = -1) between to countries, here between Germany and Canada for the years between 1992 and 2012.
+Specifying an `origin`, `destination` and `year` delivers the harmonic mean distance (&theta; = -1) between to countries, here between Germany and Canada for the years between 1992 and 2012.
 
-```
-library(gravity.distances)
+```R
 library(ggplot2)
 
 dist <- data.frame(origin = "DEU", destination = "CAN", year = c(1992:2012))
@@ -37,7 +48,7 @@ ggplot(dist) +
 
 Specifying the `theta`s for a given year shows the effect of &theta; on the aggregate distance. The result is most visible for short distances, e.g. the average distance between two points in Canada. Note that the `data` argument needs to be set to `distances_from_countries_to_countries` in order to have distances for `theta` values between -2 and 1 in 0.1 increments.
 
-```
+```R
 dist <- data.frame(origin = "CAN", destination = "CAN", theta = c(-20:10)/10)
 dist$distance = get_distance(origin = dist$origin,
                              destination = dist$destination,
@@ -50,7 +61,7 @@ dist$distance = get_distance(origin = dist$origin,
 
 The `data` argument can be used to use different distance datasets.
 
-```
+```R
 dist <- expand.grid(origin = "BC", destination = c("BC", "AB", "SK", "MB"), theta = c(-20:10)/10)
 dist$distance = get_distance(origin = dist$origin,
                              destination = dist$destination,
