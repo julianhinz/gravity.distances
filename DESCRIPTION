@@ -2,6 +2,7 @@ Package: gravity.distances
 Type: Package
 Title: Gravity-consistent distances between geographic entities
 Version: 0.1.0
+Depends: R (>= 2.10)
 Author: Julian Hinz
 Maintainer: Julian Hinz <mail@julianhinz.com>
 Description: This package provides distances between geographic entities — like countries,
