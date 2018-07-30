@@ -89,4 +89,4 @@ The `remove_data` function removes some or all downloaded additional datasets. T
 
 ## Bugs?
 
-* This package is still in its very early stages. Let me know if you find bugs via pull request or e-mail to [mail@julianhinz.com](mailto:mail@julianhinz.com).
+* This package is still in its very early stages. Let me know if you find bugs via pull request or e-mail to [mail@julianhinz.com](mailto:mail@julianhinz.com?subject=gravity.distances package).
