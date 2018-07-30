@@ -80,6 +80,7 @@ get_distance = function (origin, destination, year = 2012, theta = -1,
 #' @import data.table
 #' @import feather
 #' @import stringr
+#' @import utils
 #'
 get_data = function (data, years, data_url, data_store) {
 
@@ -109,4 +110,20 @@ get_data = function (data, years, data_url, data_store) {
 
   # return data
   return(output)
+}
+
+#' Remove some or all downloaded additional distances datasets
+#'
+#' @param data Character string or vector containing name of dataset(s)
+#' @import stringr
+#' @export remove_data
+#' @examples
+#' remove_data("distances_from_canada_provinces_to_canada_provinces")
+#'
+remove_data = function (data = NULL) {
+  datasets = list.dirs(str_c("data"))
+  datasets = datasets[datasets != "data"]
+  if (!is.null(data)) datasets = datasets[str_detect(datasets, data)]
+  unlink(datasets, recursive = T)
+  print(str_c("Removed ", str_c(datasets, collapse = ", ")))
 }
