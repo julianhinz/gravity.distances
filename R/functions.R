@@ -19,7 +19,7 @@
 
 get_distance = function (origin, destination, year = 2012, theta = -1,
                          data = NULL, code_format = "iso3c",
-                         data_url = "https://raw.githubusercontent.com/julianhinz/gravity.distances_data/master/",
+                         data_url = NULL,
                          data_store = T) {
 
   # perform sanity checks
@@ -45,6 +45,7 @@ get_distance = function (origin, destination, year = 2012, theta = -1,
                                         "distances_from_canada_provinces_to_countries",
                                         "distances_from_canada_provinces_to_canada_provinces",
                                         "distances_from_canada_provinces_to_usa_states")) {
+    if (is.null(data_url)) data_url = "https://raw.githubusercontent.com/julianhinz/gravity.distances_data/master/"
     data = get_data(data,
                     years = unique(request[year %in% c(1992:2012)]$year),
                     data_url,

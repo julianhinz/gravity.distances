@@ -5,8 +5,7 @@
 \title{Distance between two geographic entities}
 \usage{
 get_distance(origin, destination, year = 2012, theta = -1,
-  data = NULL, code_format = "iso3c",
-  data_url = "https://raw.githubusercontent.com/julianhinz/gravity.distances_data/master/",
+  data = NULL, code_format = "iso3c", data_url = NULL,
   data_store = T)
 }
 \arguments{
