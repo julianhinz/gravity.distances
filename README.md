@@ -1,6 +1,6 @@
 # gravity.distances
 
-The R package `gravity.distances` provides *aggregate* distances between geographic entities — such as countries, US states or Canadian provinces — that are consistent with the gravity equation in international economics. Please check out [julianhinz.com/resources/#gravity.distances](http://julianhinz.com/resources/#gravity.distances) for more information.
+The R package `gravity.distances` provides *aggregate* distances between geographic entities — such as countries, US states or Canadian provinces — that are consistent with the gravity equation in international economics. Please check out [julianhinz.com/data/#gravity.distances](https://julianhinz.com/data/#gravity.distances) for more information.
 
 ## Installation
 
